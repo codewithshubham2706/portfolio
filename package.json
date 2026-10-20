@@ -1,0 +1,15 @@
+{
+  "name": "shubham-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal portfolio of Shubham Birajdar — static site + Cloudflare Worker contact API with D1 storage.",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "db:init:local": "wrangler d1 execute portfolio-messages --local --file=schema.sql",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}
