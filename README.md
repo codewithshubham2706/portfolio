@@ -3,7 +3,8 @@
 Personal portfolio site (single page) with a real backend: a Cloudflare Worker that serves
 the static site and exposes a contact API backed by a D1 (SQLite) database.
 
-**Live:** https://site-9bfbff5b8c9f40a5ab5a686bc287488b.freebuff.page
+**Live (production):** https://site-88c28c19caac4fb2ba62486a951cea55.freebuff.page
+**Preview:** https://site-9bfbff5b8c9f40a5ab5a686bc287488b.freebuff.page
 
 ## What's inside
 
@@ -46,7 +47,7 @@ Messages submitted locally are stored in the local D1 (`.wrangler/` state).
 Set an `ADMIN_KEY` secret for the site environment, then:
 
 ```bash
-curl -H "X-Admin-Key: <your key>" https://site-<id>.freebuff.page/api/messages
+curl -H "X-Admin-Key: <your key>" https://site-88c28c19caac4fb2ba62486a951cea55.freebuff.page/api/messages
 ```
 
 ## Deployment
@@ -54,5 +55,6 @@ curl -H "X-Admin-Key: <your key>" https://site-<id>.freebuff.page/api/messages
 Deployed with Freebuff Sites (Cloudflare Worker + D1):
 
 - Site ID: `7f2a9c41-3e5b-4d18-9a6f-2c8b1d4e7f90`
-- Environment: `preview`
+- Environments: `preview` and `production` — both live, each with its own D1 database
 - D1 binding: `DB` (auto-migrated by `worker.js` on first request)
+- `ADMIN_KEY` secret is set per environment (message inbox protection)
